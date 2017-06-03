@@ -37,6 +37,8 @@ class Chat
 		puts "#{message.text}"
 
 		if message.text == "/stop" then delete_chat @chat.id end
+		if message.text == "/restart" then restart end
+		if message.text == "/shutdown" then shutdown end
 		
 		broadcast_message("mirmik")
 	end

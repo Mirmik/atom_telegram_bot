@@ -14,10 +14,20 @@ def broadcast_message(text)
 	end
 end
 
+def restart
+	Thread.new do
+		broadcast_message "system: restart"
+		sleep 3
+		exit 0
+	end
+end
+
 def shutdown
-	broadcast_message "system: shutdown"
-	sleep 1
-	exit
+	Thread.new do
+		broadcast_message "system: shutdown"
+		sleep 3
+		exit 1
+	end
 end
 
 def delete_chat(id)
@@ -38,7 +48,7 @@ FileUtils::mkdir_p dirpath
 chats_initialize
 
 Thread.new do
-	i = 3 
+	i = 0 
 	loop do
 		i = i + 1
 		broadcast_message "empty thread spam #{i}"
