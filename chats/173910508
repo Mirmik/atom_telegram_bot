@@ -1,0 +1,9 @@
+--- !ruby/object:Chat
+chat: !ruby/object:Telegram::Bot::Types::Chat
+  id: 173910508
+  first_name: Sorokin
+  last_name: Nikolay
+  username: Mirmik
+  type: private
+  title: 
+  all_members_are_administrators: 
