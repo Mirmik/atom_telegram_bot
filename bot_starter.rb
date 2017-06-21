@@ -6,7 +6,7 @@ $dirname = "/home/mirmik/project/atom_telegram_bot/"
 require "fileutils"
 
 FileUtils::mkdir_p $dirname + "logs"
-log = File.new $dirname + "logs/starter", "w"
+log = File.new $dirname + "logs/starter", "a"
 
 loop do
 	log.puts "start bot at #{Time.now}"
