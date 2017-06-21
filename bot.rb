@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 #coding: utf-8
 
+$dirname = "/home/mirmik/project/atom_telegram_bot/"
+
 require 'telegram/bot'
-require './chat.rb'
+require $dirname + 'chat.rb'
 
 $botref = nil
-tokenFile = File.new "token", "r" 
+tokenFile = File.new ($dirname + "token"), "r" 
 token = tokenFile.readline
 
 def broadcast_message(text)
@@ -32,7 +34,7 @@ end
 
 def delete_chat(id)
 	chats.delete id
-	File.delete "./chats/#{id}"
+	File.delete $dirname + "chats/#{id}"
 	puts "chat #{id} was deleted"
 end
 
@@ -43,7 +45,7 @@ def logmessage(message)
 end
 
 
-dirpath = Dir.pwd + '/chats'
+dirpath = $dirname + 'chats'
 FileUtils::mkdir_p dirpath
 chats_initialize
 

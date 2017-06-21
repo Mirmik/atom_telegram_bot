@@ -8,9 +8,9 @@ def chats
 end
 
 def chats_initialize
-	Dir.foreach "./chats" do |file|
+	Dir.foreach $dirname + "chats" do |file|
 		next if file == "." or file == ".." 
-		chat = YAML::load(File.new("./chats/#{file}").read())
+		chat = YAML::load(File.new($dirname + "chats/#{file}").read())
 		chats[chat.chat.id] = chat
 
 		puts "load chat #{chat.chat.id}, #{chat.chat.username}"
@@ -28,7 +28,7 @@ class Chat
 		if chat == nil then return end
 		@chat = chat
 		puts "new chat initialize id: #{@chat.id}, username: #{@chat.username}"
-		chatfile = File.new "./chats/#{@chat.id}", "w"
+		chatfile = File.new ($dirname .. "chats/#{@chat.id}"), "w"
 		chatfile.puts YAML::dump(self)
 	end
 
