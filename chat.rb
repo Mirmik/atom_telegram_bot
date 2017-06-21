@@ -32,6 +32,10 @@ class Chat
 		chatfile.puts YAML::dump(self)
 	end
 
+	def send(msg)
+		$botref.api.sendMessage(chat_id: @chat.id, text: msg)
+	end
+
 	def receive(message)
 		print("#{@chat.id}@#{@chat.username}$ ")
 		puts "#{message.text}"
@@ -39,7 +43,9 @@ class Chat
 		if message.text == "/stop" then delete_chat @chat.id end
 		if message.text == "/restart" then restart end
 		if message.text == "/shutdown" then shutdown end
-		if message.text == "/onion" then print("ep3bchsx6qwc54v5.onion") end
+		if message.text == "/onion" then 
+			send("ep3bchsx6qwc54v5.onion")
+		end
 		
 		broadcast_message("mirmik")
 	end
