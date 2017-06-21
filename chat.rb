@@ -46,6 +46,10 @@ class Chat
 		if message.text == "/onion" then 
 			send("ep3bchsx6qwc54v5.onion")
 		end
+		if message.text == "/starterlog" then 
+			log = File.new $dirname + "logs/starter", "r"
+			send(log.read)
+		end
 		
 		broadcast_message("mirmik")
 	end
