@@ -47,14 +47,14 @@ dirpath = Dir.pwd + '/chats'
 FileUtils::mkdir_p dirpath
 chats_initialize
 
-Thread.new do
-	i = 0 
-	loop do
-		i = i + 1
-		broadcast_message "empty thread spam #{i}"
-		sleep 5
-	end
-end
+#Thread.new do
+#	i = 0 
+#	loop do
+#		i = i + 1
+#		broadcast_message "empty thread spam #{i}"
+#		sleep 5
+#	end
+#end
 
 Telegram::Bot::Client.run(token) do |bot|
 	$botref = bot

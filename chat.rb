@@ -39,6 +39,7 @@ class Chat
 		if message.text == "/stop" then delete_chat @chat.id end
 		if message.text == "/restart" then restart end
 		if message.text == "/shutdown" then shutdown end
+		if message.text == "/onion" then print("ep3bchsx6qwc54v5.onion") end
 		
 		broadcast_message("mirmik")
 	end
